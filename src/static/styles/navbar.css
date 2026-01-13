@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "segoe ui";
+}
+.nav {
+  height: 50px;
+  width: 100%;
+  background-color: #333;
+  position: relative;
+}
+.nav .nav-header {
+  display: inline;
+}
+
+.nav .nav-header .nav-title {
+  display: inline-block;
+  font-size: 22px;
+  color: #fff;
+  padding: 10px 10px 10px 10px;
+}
+
+.nav .nav-btn {
+  display: none;
+}
