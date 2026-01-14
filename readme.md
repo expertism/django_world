@@ -9,13 +9,13 @@ You may find garbage code here 💀 ( don't expect any commits to be named prope
 ## Project File Tree (being worked on)
 
 ```
-dj-project/ # project root
+django_world/ # project root
 │   readme.md
 │
 ├── djvenv/ # virtual enironment
 │   └── ... (virtual environment files)
 │
-├── polls/ # /poll route (app)
+├── polls/ # /polls route (app)
 │   ├── db.sqlite3
 │   ├── manage.py
 │   └── polls/
@@ -29,7 +29,7 @@ dj-project/ # project root
 │       ├── migrations/
 │       └── templates/
 │
-├── website/ # main controller
+├── django_wolrd/ # main controller & settings
 │   ├── __init__.py
 │   ├── asgi.py
 │   ├── settings.py
@@ -40,4 +40,8 @@ dj-project/ # project root
 	├──
 	├──
 	└──
+```
+
+```
+
 ```
