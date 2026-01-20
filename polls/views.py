@@ -1,9 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse
 from .models import Question
 
 def polls(request):
-    return render(request, "polls/index.html")
+    latest_question_list = Question.objects.all()
+    return render(request, "polls/index.html", {"latest_question_list": latest_question_list})
 
 def detail(request, question_id):
     question = Question.objects.get(pk=question_id)
