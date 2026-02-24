@@ -8,10 +8,44 @@
       type="text/css"
       href="{% static 'styles/index.css' %}"
     />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'styles/navbar.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'styles/auth.css' %}"
+    />
   </head>
   <body>
-    {% include 'navbar.html' %} {% block content %}
-    <h1>Welcome to the Home Page</h1>
+    {% include 'navbar.html' %} {% if messages %}
+    <div class="messages-container" style="max-width: 600px; margin: 20px auto">
+      {% for message in messages %}
+      <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+      {% endfor %}
+    </div>
+    {% endif %} {% block content %}
+    <section class="hero">
+      <h1>Welcome to Django World</h1>
+      <p class="hero-subtitle">
+        A simple project built with Django — explore polls, create an account,
+        and get started.
+      </p>
+      {% if not user.is_authenticated %}
+      <div class="hero-actions">
+        <a href="{% url 'users:signup' %}" class="hero-btn">Get Started</a>
+        <a href="{% url 'polls:polls' %}" class="hero-btn hero-btn-outline"
+          >Browse Polls</a
+        >
+      </div>
+      {% else %}
+      <div class="hero-actions">
+        <a href="{% url 'polls:polls' %}" class="hero-btn">Browse Polls</a>
+      </div>
+      {% endif %}
+    </section>
     {% endblock %}
   </body>
 </html>

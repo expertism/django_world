@@ -1,7 +1,7 @@
 {% extends 'index.html' %} {% load static %} {% block content %}
 <div class="auth-container">
   <div class="auth-card">
-    <h2>Log In</h2>
+    <h2>Sign Up</h2>
 
     {% if messages %} {% for message in messages %}
     <div class="alert alert-{{ message.tags }}">{{ message }}</div>
@@ -11,7 +11,9 @@
       {% csrf_token %} {% for field in form %}
       <div class="form-group">
         <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-        {{ field }} {% if field.errors %}
+        {{ field }} {% if field.help_text %}
+        <small class="help-text">{{ field.help_text }}</small>
+        {% endif %} {% if field.errors %}
         <div class="field-error">
           {% for error in field.errors %}
           <p>{{ error }}</p>
@@ -20,11 +22,11 @@
         {% endif %}
       </div>
       {% endfor %}
-      <button type="submit" class="btn">Log In</button>
+      <button type="submit" class="btn">Sign Up</button>
     </form>
 
     <p class="auth-link">
-      Don't have an account? <a href="{% url 'users:signup' %}">Sign Up</a>
+      Already have an account? <a href="{% url 'users:login' %}">Log In</a>
     </p>
   </div>
 </div>
